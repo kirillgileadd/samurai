@@ -1,0 +1,18 @@
+.dialogs {
+  padding: 30px;
+}
+
+.avatar {
+  height: 60px;
+  width: 60px;
+}
+
+
+.box {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+
+.dialog__link {
+  display: block;
+}
