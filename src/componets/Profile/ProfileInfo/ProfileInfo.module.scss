@@ -1,0 +1,16 @@
+.main {
+   z-index: 10;
+   position: relative;
+   padding-top: 95px;
+   display: grid;
+   grid-template-columns: 1fr 2.5fr;
+   &::after {
+      position: absolute;
+      content: '';
+      background-image: url(https://million-wallpapers.ru/wallpapers/2/99/388105961835465.jpg);
+      width: 100%;
+      height: 280px;
+      z-index: -1;
+   }
+}
+

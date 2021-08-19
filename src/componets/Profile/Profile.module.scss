@@ -1,0 +1,15 @@
+.box {
+   height: 100%;
+   display: grid;
+   grid-template-columns: 1fr 1.5fr 1fr;
+}
+
+.aside {
+   height: 100%;
+   background-color: hotpink;
+}
+
+.activity {
+   height: 100%;
+   background-color: indianred;
+}
