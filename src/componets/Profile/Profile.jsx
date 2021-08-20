@@ -12,7 +12,7 @@ const Profile = (props) => {
             <div className={s.aside}>
                aside
             </div>
-            <MyPosts posts={props.posts} />
+            <MyPosts posts={props.state.posts} />
             <div className={s.activity}>
                activity
             </div>
