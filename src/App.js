@@ -4,12 +4,14 @@ import Header from './componets/Header/Header';
 import NavBar from './componets/NavBar/NavBar';
 import Profile from './componets/Profile/Profile';
 import Dialogs from "./componets/Dialogs/Dialogs";
-import {BrowserRouter} from "react-router-dom";
+import {BrowserRouter, Switch} from "react-router-dom";
 import {Route} from  'react-router'
 import Activity from "./componets/Activity/Activity";
 import News from "./componets/News/News";
 import Music from "./componets/Music/Music";
 import Settings from "./componets/Settings/Settings";
+import Friends from "./componets/Friends/Friends";
+import Members from "./componets/Members/Members";
 
 
 
@@ -22,17 +24,22 @@ const App = (props) => {
         <BrowserRouter>
             <section className="main">
                 <div className="main__inner">
-                    <NavBar/>
+                    <NavBar state={props.state.navBar}/>
                     <Header/>
                 </div>
                 <div className="wrapper-content">
+                    <Switch>
                     <Route path="/dialogs" render={ () => <Dialogs state={props.state.dialogsPage} />}/>
                     <Route path="/profile" render={ () => <Profile state={props.state.profilePage}/>}/>
-                    <Route path="/activity" component={Activity}/>
-                    <Route path="/news" component={News}/>
-                    <Route path="/music" component={Music}/>
                     <Route path="/settings" component={Settings}/>
-                    <Route path="/settings" component={Settings}/>
+                    <div className="wrapper-box">
+                        <Route path="/news" component={News}/>
+                        <Route path="/music" component={Music}/>
+                        <Route path="/friends" component={Friends}/>
+                        <Route path="/activity" component={Activity}/>
+                        <Members />
+                    </div>
+                    </Switch>
                 </div>
             </section>
         </BrowserRouter>

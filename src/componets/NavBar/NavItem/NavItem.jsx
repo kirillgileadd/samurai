@@ -4,7 +4,7 @@ import {Link, NavLink} from "react-router-dom";
 
 const NavItem = (props) => {
 
-    let path = '' + props.adress
+    let path = '' + props.address
     return (
         <div className={s.inner}>
             <NavLink to={path} className={s.link} activeClassName={s.active} >

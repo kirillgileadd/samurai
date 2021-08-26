@@ -2,23 +2,21 @@ import React from 'react'
 import ProfileInfo from './ProfileInfo/ProfileInfo'
 import MyPosts from './MyPosts/MyPosts'
 import s from './Profile.module.scss'
+import ProfileAside from "./ProfileAside/ProfileAside";
+import ProfileActivity from "./ProfileActivity/ProfileActivity";
 
 const Profile = (props) => {
 
-   return (
-      <div className={s.profile}>
-         <ProfileInfo />
-         <div className={s.box}>
-            <div className={s.aside}>
-               aside
+    return (
+        <div className={s.profile}>
+            <ProfileInfo/>
+            <div className={s.box}>
+                <ProfileAside/>
+                <MyPosts posts={props.state.posts}/>
+                <ProfileActivity/>
             </div>
-            <MyPosts posts={props.state.posts} />
-            <div className={s.activity}>
-               activity
-            </div>
-         </div>
-      </div>
-   );
+        </div>
+    );
 }
 
 export default Profile

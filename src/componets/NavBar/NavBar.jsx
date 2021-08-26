@@ -5,21 +5,11 @@ import 'simplebar/dist/simplebar.min.css';
 import NavItem from "./NavItem/NavItem";
 
 
-let ItemsData = [
-    {name: 'Profile', address: '/profile'},
-    {name: 'Activity', address: '/activity'},
-    {name: 'Dialogs', address: '/dialogs'},
-    {name: 'News', address: '/news'},
-    {name: 'Music', address: '/music'},
-    {name: 'Friends'},
-    {name: 'Settings', address: '/settings'},
-]
+const NavBar = (props) => {
 
+    let itemsElements = props.state.navItems.map( el => <NavItem name={el.name} address={el.address}/>)
 
-
-const NavBar = () => {
     return (
-
         <aside className={s.aside}>
             <div className={s.wrapper}>
                 <SimpleBar className={s.simplebarContent}>
@@ -56,15 +46,7 @@ const NavBar = () => {
                         </div>
                         <div className={s.bottom}>
                             <div className={s.bottom__inner}>
-                                <NavItem name={ItemsData[0].name} adress={ItemsData[0].address}/>
-                                <NavItem name={ItemsData[1].name} adress={ItemsData[1].address}/>
-                                <NavItem name={ItemsData[2].name} adress={ItemsData[2].address}/>
-                                <NavItem name={ItemsData[3].name} adress={ItemsData[3].address}/>
-                                <NavItem name={ItemsData[4].name} adress={ItemsData[4].address}/>
-                                <NavItem name={ItemsData[5].name} adress={ItemsData[5].address}/>
-                                <NavItem name={ItemsData[5].name} adress={ItemsData[5].address}/>
-                                <NavItem name={ItemsData[5].name} adress={ItemsData[5].address}/>
-                                <NavItem name={ItemsData[6].name} adress={ItemsData[6].address}/>
+                                {itemsElements}
                             </div>
                         </div>
                     </div>

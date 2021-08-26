@@ -11,7 +11,7 @@ const ProfileNavigation = () => {
             <ProfileNavItem content="Settings" />
             <ProfileNavItem content="Messages" />
             <ProfileNavItem content="News" />
-            <ProfileNavItem content="Music" />
+            <ProfileNavItem content="Friends" />
             <ProfileNavItem content="Friends" />
             <ProfileNavItem content="Settings" />
          </div>

@@ -19,6 +19,17 @@ let state = {
             {id: '2', username: 'Rene', online: '2 hour ago'},
             {id: '3', username: 'Kir', online: '4 hour ago'},
         ],
+    },
+    navBar: {
+        navItems: [
+            {name: 'Profile', address: '/profile'},
+            {name: 'Activity', address: '/activity'},
+            {name: 'Dialogs', address: '/dialogs'},
+            {name: 'News', address: '/news'},
+            {name: 'Music', address: '/music'},
+            {name: 'Friends', address: '/friends'},
+            {name: 'Settings', address: '/settings'},
+        ]
     }
 
 }
