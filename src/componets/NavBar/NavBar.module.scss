@@ -28,7 +28,7 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: 403px;
+    height: 390px;
     background-image: linear-gradient(135deg, #4f5261 0%, #383a45 50%);
   }
 
@@ -123,24 +123,12 @@
   }
 }
 
-.friends {
-  color: lightgray;
+.profileItem {
+  color: #626c72;
   margin: 0 10px;
 
   &__num {
-    color: #626c72;
-    font-family: 'Quicksand', sans-serif;
-    font-size: 16px;
-    font-weight: 600;
-  }
-}
-
-.group {
-  color: lightgray;
-  margin: 0 10px;
-
-  &__num {
-    color: #626c72;
+    color: #9d6cf3;
     font-family: 'Quicksand', sans-serif;
     font-size: 16px;
     font-weight: 600;

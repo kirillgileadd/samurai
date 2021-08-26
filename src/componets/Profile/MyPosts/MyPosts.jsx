@@ -6,15 +6,56 @@ import s from './MyPosts.module.scss'
 const MyPosts = (props) => {
 
 
+    let postsElements = props.posts.map((el) => <Post massege={el.massage} like={el.likeCounter}/>)
 
-    let postsElements = props.posts.map( (el) =>  <Post massege={el.massage} like={el.likeCounter}/>)
+    return (
+        <div className={s.MyPosts}>
+            <div className={s.menu}>
+                <div className={s.menu__item + ' ' + s.active}>
+                    Personal
+                </div>
+                <div className={s.menu__item}>
+                    Favorites
+                </div>
+                <div className={s.menu__item}>
+                    Friends
+                </div>
+                <div className={s.menu__item}>
+                    Groups
+                </div>
+            </div>
+            <div className={s.input}>
+                <div className={s.input__inner}>
+                    <div className={s.content}>
+                        <img className={s.userImg}
+                             src="https://sun9-76.userapi.com/impg/c854028/v854028333/2382d8/QicB3rqwSYI.jpg?size=814x1600&quality=96&sign=d41992ffdb751a56ad5ce80c283bc2c8&type=album"
+                             alt=""/>
+                        <textarea cols="30" className={s.text}>
 
-   return (
-      <div className={s.MyPosts}>
-         <span>Posts</span>
-          {postsElements}
-      </div>
-   );
+                        </textarea>
+                        <div className={s.attach}>
+                            <div className={s.attach__item}>
+                                R
+                            </div>
+                            <div className={s.attach__item}>
+                                S
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className={s.flexBox}>
+                        <button className={s.button}>
+                            Add Post
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div className={s.posts}>
+                {postsElements}
+            </div>
+
+        </div>
+    );
 }
 
 

@@ -3,11 +3,13 @@ import s from './NavBar.module.scss'
 import SimpleBar from "simplebar-react";
 import 'simplebar/dist/simplebar.min.css';
 import NavItem from "./NavItem/NavItem";
+import ProfileItem from "./ProfileItem/ProfileItem";
 
 
 const NavBar = (props) => {
 
-    let itemsElements = props.state.navItems.map( el => <NavItem name={el.name} address={el.address}/>)
+    let itemsElements = props.state.navItems.map(el => <NavItem name={el.name} address={el.address}/>)
+    let itemsProfile = props.state.aside.map( el => <ProfileItem name={el.name} num={el.num}/>)
 
     return (
         <aside className={s.aside}>
@@ -17,12 +19,12 @@ const NavBar = (props) => {
                         <div className={s.top}>
                             <a className={s.logo__link}>
                                 <img className={s.logo}
-                                    src="https://mythemestore.com/beehive-preview/wp-content/themes/beehive/assets/images/logo-vertical.svg"/>
+                                     src="https://mythemestore.com/beehive-preview/wp-content/themes/beehive/assets/images/logo-vertical.svg"/>
                             </a>
                             <div className={s.profile}>
                                 <a className={s.avatar__link}>
                                     <img className={s.avatar}
-                                        src="https://sun9-76.userapi.com/impg/c854028/v854028333/2382d8/QicB3rqwSYI.jpg?size=814x1600&quality=96&sign=d41992ffdb751a56ad5ce80c283bc2c8&type=album"/>
+                                         src="https://sun9-76.userapi.com/impg/c854028/v854028333/2382d8/QicB3rqwSYI.jpg?size=814x1600&quality=96&sign=d41992ffdb751a56ad5ce80c283bc2c8&type=album"/>
                                 </a>
                                 <a className={s.username__link}>
                                     <span className={s.username}>
@@ -33,14 +35,7 @@ const NavBar = (props) => {
                                     Member
                                 </p>
                                 <div className={s.profile__nav}>
-                                    <div className={s.friends}>
-                                        <span className={s.friends__num}>1</span>
-                                        <p>Friends</p>
-                                    </div>
-                                    <div className={s.group}>
-                                        <span className={s.group__num}>6</span>
-                                        <p>Group</p>
-                                    </div>
+                                    {itemsProfile}
                                 </div>
                             </div>
                         </div>

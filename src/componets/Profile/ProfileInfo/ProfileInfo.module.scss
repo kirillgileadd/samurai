@@ -1,15 +1,15 @@
 .main {
    z-index: 10;
    position: relative;
-   padding-top: 95px;
+   padding-top: 125px;
    display: grid;
-   grid-template-columns: 1fr 2.5fr;
+   grid-template-columns: 1fr 3fr;
    &::after {
       position: absolute;
       content: '';
       background-image: url(https://million-wallpapers.ru/wallpapers/2/99/388105961835465.jpg);
       width: 100%;
-      height: 280px;
+      height: 310px;
       z-index: -1;
    }
 }

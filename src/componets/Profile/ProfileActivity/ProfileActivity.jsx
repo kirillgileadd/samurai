@@ -4,7 +4,9 @@ import s from './ProfileActivity.module.scss'
 const ProfileActivity = () => {
    return (
        <div className={s.activity}>
-           activity
+           <h4 className={s.title}>
+               Resent Activity
+           </h4>
        </div>
    );
 }

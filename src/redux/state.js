@@ -4,6 +4,10 @@ let state = {
             {massage: "It's my first post", likeCounter: '21'},
             {massage: "It's my first post", likeCounter: '21'},
             {massage: "It's my first post", likeCounter: '21'},
+        ],
+        aside: [
+            {name: 'Friends', num: '3'},
+            {name: 'Group', num: '6'},
         ]
     },
     dialogsPage: {
@@ -29,6 +33,10 @@ let state = {
             {name: 'Music', address: '/music'},
             {name: 'Friends', address: '/friends'},
             {name: 'Settings', address: '/settings'},
+        ],
+        aside: [
+            {name: 'Friends', num: '3'},
+            {name: 'Group', num: '6'},
         ]
     }
 
