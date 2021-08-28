@@ -1,0 +1,28 @@
+.dialog {
+  padding: 10px 10px;
+  border-bottom: 1px solid #e7edf2;
+}
+
+.name {
+  margin-left: 10px;
+}
+
+.avatar {
+  height: 50px;
+  width: 50px;
+}
+
+.avatarImg {
+  border-radius: 40px;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+
+.dialog__link {
+  display: flex;
+
+}
+
+

@@ -3,13 +3,25 @@
 }
 
 .link {
+   width: 90px;
+   text-align: center;
    padding: 30px 5px 0px 5px;
-   margin: 0 10px;
    border-radius: 20px;
+   color: #626c72;
+   transition: all 0.5s;
+   font-size: 14px;
+   background-color: #ffffff;
+}
+
+.active {
+   background: linear-gradient(135deg, #c395f1 0%, #8224e3 75%);
+   color: #ffffff;
+   font-weight: bold;
+   transition: all 0.5s;
 }
 
 
 .text {
    font-size: 14px;
-   color: #626c72;
+
 }

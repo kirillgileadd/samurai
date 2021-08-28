@@ -1,12 +1,13 @@
 import React from 'react'
 import s from './ProfileNavItem.module.scss'
+import {NavLink} from "react-router-dom";
 
 const ProfileNavItem = (props) => {
    return (
       <div className={s.main}>
-         <a className={s.link} href="#">
-            <span className={s.text}>{props.content}</span>
-         </a>
+         <NavLink to={'/profile/' + props.id} className={s.link} activeClassName={s.active}>
+            {props.content}
+         </NavLink>
       </div>
    );
 }

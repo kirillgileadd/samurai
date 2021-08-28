@@ -7,6 +7,13 @@ const MyPosts = (props) => {
 
 
     let postsElements = props.posts.map((el) => <Post massege={el.massage} like={el.likeCounter}/>)
+    let newRefElement = React.createRef();
+
+    let addPost = () => {
+        let text = newRefElement.current.value
+            alert(text)
+    }
+
 
     return (
         <div className={s.MyPosts}>
@@ -30,7 +37,7 @@ const MyPosts = (props) => {
                         <img className={s.userImg}
                              src="https://sun9-76.userapi.com/impg/c854028/v854028333/2382d8/QicB3rqwSYI.jpg?size=814x1600&quality=96&sign=d41992ffdb751a56ad5ce80c283bc2c8&type=album"
                              alt=""/>
-                        <textarea cols="30" className={s.text}>
+                        <textarea ref={newRefElement} cols="30" className={s.text}>
 
                         </textarea>
                         <div className={s.attach}>
@@ -44,7 +51,7 @@ const MyPosts = (props) => {
                     </div>
 
                     <div className={s.flexBox}>
-                        <button className={s.button}>
+                        <button onClick={ addPost } className={s.button} >
                             Add Post
                         </button>
                     </div>

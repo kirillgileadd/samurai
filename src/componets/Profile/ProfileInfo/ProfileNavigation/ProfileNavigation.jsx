@@ -8,12 +8,11 @@ const ProfileNavigation = () => {
       <div className={s.main}>
          <h3 className={s.text}>@kirillgilead</h3>
          <div className={s.list}>
-            <ProfileNavItem content="Settings" />
-            <ProfileNavItem content="Messages" />
-            <ProfileNavItem content="News" />
-            <ProfileNavItem content="Friends" />
-            <ProfileNavItem content="Friends" />
-            <ProfileNavItem content="Settings" />
+            <ProfileNavItem content="Settings" id='1'/>
+            <ProfileNavItem content="Messages" id='2'/>
+            <ProfileNavItem content="News" id='3'/>
+            <ProfileNavItem content="Friends" id='4'/>
+            <ProfileNavItem content="Friends" id='5'/>
          </div>
       </div>
    );
