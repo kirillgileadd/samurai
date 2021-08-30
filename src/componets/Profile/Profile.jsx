@@ -4,6 +4,7 @@ import MyPosts from './MyPosts/MyPosts'
 import s from './Profile.module.scss'
 import ProfileAside from "./ProfileAside/ProfileAside";
 import ProfileActivity from "./ProfileActivity/ProfileActivity";
+import {updateNewPostText} from "../../redux/state";
 
 const Profile = (props) => {
 
@@ -14,7 +15,8 @@ const Profile = (props) => {
                 <ProfileAside aside={props.state.aside}/>
                 <MyPosts posts={props.state.posts}
                          newPostTest = {props.state.newPostTest}
-                         addPost={props.addPost}/>
+                         addPost={props.addPost}
+                         updateNewPostText={props.updateNewPostText}/>
                 <ProfileActivity/>
             </div>
         </div>

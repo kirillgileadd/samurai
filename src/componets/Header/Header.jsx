@@ -11,22 +11,22 @@ const Header = () => {
                   <ul className={s.header__icons}>
                      <li className={s.item}>
                         <a className={`${s.link} ${s.active}`} href='#'>
-                           <i class="fas fa-user"></i>
+
                         </a>
                      </li>
                      <li className={s.item}>
                         <a className={s.link} href='#'>
-                           <i class="fas fa-bell"></i>
+
                         </a>
                      </li>
                      <li className={s.item}>
                         <a className={s.link} href='#'>
-                           <i class="fas fa-envelope-open"></i>
+
                         </a>
                      </li>
                      <li className={s.item}>
                         <a className={s.link} href='#'>
-                           <i class="fas fa-shopping-cart"></i>
+
                         </a>
                      </li>
                      <li className={s.item}>

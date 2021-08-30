@@ -3,6 +3,7 @@ import Post from './Post/Post'
 import s from './MyPosts.module.scss'
 
 
+
 const MyPosts = (props) => {
 
 
@@ -10,10 +11,13 @@ const MyPosts = (props) => {
     let newRefElement = React.createRef();
 
     let addPost = () => {
-        let text = newRefElement.current.value
-            props.addPost(text)
+            props.addPost()
     }
 
+    let onPostChange = () => {
+        let text = newRefElement.current.value
+            props.updateNewPostText(text)
+    }
 
     return (
         <div className={s.MyPosts}>
@@ -37,7 +41,7 @@ const MyPosts = (props) => {
                         <img className={s.userImg}
                              src="https://sun9-76.userapi.com/impg/c854028/v854028333/2382d8/QicB3rqwSYI.jpg?size=814x1600&quality=96&sign=d41992ffdb751a56ad5ce80c283bc2c8&type=album"
                              alt=""/>
-                        <textarea  value={props.newPostTest} ref={newRefElement} cols="30" className={s.text}>
+                        <textarea  value={props.newPostTest} ref={newRefElement} onChange={ onPostChange } cols="30" className={s.text}>
 
                         </textarea>
                         <div className={s.attach}>

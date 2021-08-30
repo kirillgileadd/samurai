@@ -12,6 +12,7 @@ import Music from "./componets/Music/Music";
 import Settings from "./componets/Settings/Settings";
 import Friends from "./componets/Friends/Friends";
 import Members from "./componets/Members/Members";
+import {onChangeMessage, sendMessage} from "./redux/state";
 
 
 
@@ -29,8 +30,8 @@ const App = (props) => {
                 </div>
                 <div className="wrapper-content">
                     <Switch>
-                    <Route path="/dialogs" render={ () => <Dialogs state={props.state.dialogsPage} />}/>
-                    <Route path="/profile" render={ () => <Profile state={props.state.profilePage} addPost={props.addPost}/>}/>
+                    <Route path="/dialogs" render={ () => <Dialogs state={props.state.dialogsPage} onChangeMessage={props.onChangeMessage} sendMessage={props.sendMessage}/>}/>
+                    <Route path="/profile" render={ () => <Profile state={props.state.profilePage} addPost={props.addPost} updateNewPostText={props.updateNewPostText}/>}/>
                     <Route path="/settings" component={Settings}/>
                     <div className="wrapper-box">
                         <Route path="/news" component={News}/>

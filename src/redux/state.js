@@ -1,4 +1,7 @@
-import {renderEntireThree} from "../render";
+let renderEntireThree = () => {
+    console.log('Sate was changed')
+}
+
 
 let state = {
     profilePage: {
@@ -15,38 +18,15 @@ let state = {
     },
     dialogsPage: {
         messages: [
-            {id: '1', message: "I'm fine!"},
+            {id: '1', message: 'I am fine!'},
             {id: '2', message: 'Yo'},
             {id: '3', message: 'Yo'},
             {id: '4', message: 'Yo'},
             {id: '5', message: 'Hello World!'},
             {id: '5', message: 'Hello World!'},
-            {id: '5', message: 'Hello World!'},
-            {id: '5', message: 'Hello World!'},
-            {id: '5', message: 'Hello World!'},
-            {id: '5', message: 'Hello World!'},
-            {id: '5', message: 'Hello World!'},
-            {id: '5', message: 'Hello World!'},
-            {id: '5', message: 'Hello World!'},
-            {id: '5', message: 'Hello World!'},
-            {id: '5', message: 'Hello World!'},
-            {id: '5', message: 'Hello World!'},
-            {id: '5', message: 'Hello World!'},
-            {id: '5', message: 'Hello World!'},
-            {id: '5', message: 'Hello World!'},
-            {id: '5', message: 'Hello World!'},
-            {id: '5', message: 'Hello World!'},
-            {id: '5', message: 'Hello World!'},
-            {id: '5', message: 'Hello World!'},
-            {id: '5', message: 'Hello World!'},
-            {id: '5', message: 'Hello World!'},
-            {id: '5', message: 'Hello World!'},
-            {id: '5', message: 'Hello World!'},
-            {id: '5', message: 'Hello World!'},
-            {id: '5', message: 'Hello World!'},
-            {id: '5', message: 'Hello World!'},
-            {id: '5', message: 'Hello World!'},
         ],
+
+        newMessageText: 'WoW',
         dialogs: [
             {id: '1', username: 'Diana Sokil', online: '1 hour ago'},
             {id: '2', username: 'Rene', online: '2 hour ago'},
@@ -86,14 +66,43 @@ let state = {
 
 }
 
-export let addPost = (postMessage) => {
+window.state = state
+
+export const addPost = () => {
     let newPost = {
-        massage: postMessage,
+        massage: state.profilePage.newPostTest,
         likeCounter: '0'
     }
 
     state.profilePage.posts.push(newPost)
+    state.profilePage.newPostTest = ''
     renderEntireThree(state);
 }
+
+export const updateNewPostText = (newText) => {
+    state.profilePage.newPostTest = newText
+    renderEntireThree(state);
+}
+
+export const onChangeMessage = (newMessage) => {
+    state.dialogsPage.newMessageText = newMessage
+    renderEntireThree(state);
+}
+
+export const sendMessage = () => {
+    let newMessage = {
+        id: '5',
+        message: state.dialogsPage.newMessageText
+    }
+
+    state.dialogsPage.messages.push(newMessage)
+    state.dialogsPage.newMessageText = ''
+    renderEntireThree(state);
+}
+
+export const subscribe = (observer) => {
+    renderEntireThree = observer
+}
+
 
 export default state

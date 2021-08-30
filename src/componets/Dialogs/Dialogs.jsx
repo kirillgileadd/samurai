@@ -3,6 +3,7 @@ import s from './Dialogs.module.scss'
 import DialogItem from "./DialogItem/DialogItem";
 import MessageItem from "./MessageItem/MessageItem";
 import SimpleBar from "simplebar-react";
+import {sendMessage} from "../../redux/state";
 
 
 const Dialogs = (props) => {
@@ -12,10 +13,16 @@ const Dialogs = (props) => {
     let messagesElements = props.state.messages.map(el => <MessageItem id={el.id} message={el.message}/>)
 
     let newMessageEl = React.createRef();
+
     let sendMessage = () => {
-        let message = newMessageEl.current.value
-        alert(message)
+        props.sendMessage()
     }
+
+    let onChangeMessage = () => {
+        let message = newMessageEl.current.value
+        props.onChangeMessage(message)
+    }
+
     return (
         <div className={s.dialogs}>
             <div className={s.box}>
@@ -64,7 +71,8 @@ const Dialogs = (props) => {
                             <button className={s.attach}>
                                 A
                             </button>
-                            <textarea ref={newMessageEl} placeholder='Write a message' className={s.inputMessage}>
+                            <textarea value={props.state.newMessageText} onChange={ onChangeMessage }
+                                      ref={newMessageEl} placeholder='Write a message' className={s.inputMessage}>
                             </textarea>
                             <button onClick={ sendMessage } className={s.attach}>
                                 S
