@@ -74,7 +74,7 @@ const Dialogs = (props) => {
                             <textarea value={props.state.newMessageText} onChange={ onChangeMessage }
                                       ref={newMessageEl} placeholder='Write a message' className={s.inputMessage}>
                             </textarea>
-                            <button onClick={ sendMessage } className={s.attach}>
+                            <button onClick={ sendMessage } className={s.attach} >
                                 S
                             </button>
                         </div>
