@@ -12,7 +12,9 @@ const Profile = (props) => {
             <ProfileInfo/>
             <div className={s.box}>
                 <ProfileAside aside={props.state.aside}/>
-                <MyPosts posts={props.state.posts}/>
+                <MyPosts posts={props.state.posts}
+                         newPostTest = {props.state.newPostTest}
+                         addPost={props.addPost}/>
                 <ProfileActivity/>
             </div>
         </div>

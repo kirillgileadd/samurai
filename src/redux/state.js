@@ -1,3 +1,5 @@
+import {renderEntireThree} from "../render";
+
 let state = {
     profilePage: {
         posts:  [
@@ -5,6 +7,7 @@ let state = {
             {massage: "It's my first post", likeCounter: '21'},
             {massage: "It's my first post", likeCounter: '21'},
         ],
+        newPostTest: 'it-kamasytra',
         aside: [
             {name: 'Friends', num: '3'},
             {name: 'Group', num: '6'},
@@ -81,6 +84,16 @@ let state = {
         ]
     }
 
+}
+
+export let addPost = (postMessage) => {
+    let newPost = {
+        massage: postMessage,
+        likeCounter: '0'
+    }
+
+    state.profilePage.posts.push(newPost)
+    renderEntireThree(state);
 }
 
 export default state
