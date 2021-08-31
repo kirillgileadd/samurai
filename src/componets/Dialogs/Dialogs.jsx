@@ -12,14 +12,13 @@ const Dialogs = (props) => {
                                                                     online={el.online}/>)
     let messagesElements = props.state.messages.map(el => <MessageItem id={el.id} message={el.message}/>)
 
-    let newMessageEl = React.createRef();
 
     let sendMessage = () => {
         props.sendMessage()
     }
 
-    let onChangeMessage = () => {
-        let message = newMessageEl.current.value
+    let onChangeMessage = (e) => {
+        let message = e.target.value
         props.onChangeMessage(message)
     }
 
@@ -72,7 +71,7 @@ const Dialogs = (props) => {
                                 A
                             </button>
                             <textarea value={props.state.newMessageText} onChange={ onChangeMessage }
-                                      ref={newMessageEl} placeholder='Write a message' className={s.inputMessage}>
+                                      placeholder='Write a message' className={s.inputMessage}>
                             </textarea>
                             <button onClick={ sendMessage } className={s.attach} >
                                 S

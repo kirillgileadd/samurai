@@ -12,8 +12,7 @@ let renderEntireThree = (state) => {
         <BrowserRouter>
             <React.StrictMode>
                 <App state={state}
-                     addPost={store.addPost.bind(store)}
-                     updateNewPostText={store.updateNewPostText.bind(store)}
+                     dispatch = {store.dispatch.bind(store)}
                      onChangeMessage={store.onChangeMessage.bind(store)}
                      sendMessage={store.sendMessage.bind(store)}/>
             </React.StrictMode>

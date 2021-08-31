@@ -15,8 +15,7 @@ const Profile = (props) => {
                 <ProfileAside aside={props.state.aside}/>
                 <MyPosts posts={props.state.posts}
                          newPostTest = {props.state.newPostTest}
-                         addPost={props.addPost}
-                         updateNewPostText={props.updateNewPostText}/>
+                         dispatch={props.dispatch}/>
                 <ProfileActivity/>
             </div>
         </div>

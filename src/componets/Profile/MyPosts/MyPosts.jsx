@@ -1,6 +1,7 @@
 import React from 'react'
 import Post from './Post/Post'
 import s from './MyPosts.module.scss'
+import {addPostActionChange, onPostChangeActionChange} from "../../../redux/state";
 
 
 
@@ -11,12 +12,12 @@ const MyPosts = (props) => {
     let newRefElement = React.createRef();
 
     let addPost = () => {
-            props.addPost()
+            props.dispatch(addPostActionChange())
     }
 
     let onPostChange = () => {
         let text = newRefElement.current.value
-            props.updateNewPostText(text)
+            props.dispatch(onPostChangeActionChange(text))
     }
 
     return (
@@ -53,7 +54,6 @@ const MyPosts = (props) => {
                             </div>
                         </div>
                     </div>
-
                     <div className={s.flexBox}>
                         <button onClick={ addPost } className={s.button} >
                             Add Post

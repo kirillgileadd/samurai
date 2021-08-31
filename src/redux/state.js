@@ -1,4 +1,5 @@
-
+const ADD_POST = "ADD-POST";
+const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT"
 
 let store = {
     _state: {
@@ -62,14 +63,16 @@ let store = {
             ]
         }
     },
+    _callSubcriber() {
+        console.log('Sate was changed')
+    },
+
     getState() {
         return this._state
     },
-    callSubcriber() {
-        console.log('Sate was changed')
-    },
-    subscribe (observer) {
-        this.callSubcriber = observer
+
+    subscribe(observer) {
+        this._callSubcriber = observer
     },
 
 
@@ -81,29 +84,29 @@ let store = {
 
         this._state.profilePage.posts.push(newPost)
         this._state.profilePage.newPostTest = ''
-        this.callSubcriber(this.getState());
+        this._callSubcriber(this.getState());
     },
     updateNewPostText(newText) {
         this._state.profilePage.newPostTest = newText
-        this.callSubcriber(this.getState());
+        this._callSubcriber(this.getState());
     },
-    sendMessage  ()  {
+    sendMessage() {
         let newMessage = {
             id: '5',
-            message:  this._state.dialogsPage.newMessageText
+            message: this._state.dialogsPage.newMessageText
         }
 
         this._state.dialogsPage.messages.push(newMessage)
         this._state.dialogsPage.newMessageText = ''
-        this.callSubcriber(this.getState());
+        this._callSubcriber(this.getState());
     },
-    onChangeMessage (newMessage)  {
+    onChangeMessage(newMessage) {
         this._state.dialogsPage.newMessageText = newMessage
-        this.callSubcriber(this.getState());
+        this._callSubcriber(this.getState());
     },
 
     dispatch(action) { //type "ADD-POST"
-        if(action.type === "ADD-POST") {
+        if (action.type === ADD_POST) {
             let newPost = {
                 massage: this._state.profilePage.newPostTest,
                 likeCounter: '0'
@@ -111,14 +114,17 @@ let store = {
 
             this._state.profilePage.posts.push(newPost)
             this._state.profilePage.newPostTest = ''
-            this.callSubcriber(this.getState());
-        } else if (action.type === "UPDATE-NEW-POST-TEXT") {
+            this._callSubcriber(this.getState());
+        } else if (action.type === UPDATE_NEW_POST_TEXT) {
             this._state.profilePage.newPostTest = action.newText
-            this.callSubcriber(this.getState());
+            this._callSubcriber(this.getState());
         }
     }
 
 }
+
+export const addPostActionChange = () => ({type: ADD_POST,})
+export const onPostChangeActionChange = (text) => ({type: UPDATE_NEW_POST_TEXT, newText: text})
 
 
 export default store

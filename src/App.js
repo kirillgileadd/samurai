@@ -28,8 +28,8 @@ const App = (props) => {
                                                                   onChangeMessage={props.onChangeMessage}
                                                                   sendMessage={props.sendMessage}/>}/>
                     <Route path="/profile"
-                           render={() => <Profile state={props.state.profilePage} addPost={props.addPost}
-                                                  updateNewPostText={props.updateNewPostText}/>}/>
+                           render={() => <Profile state={props.state.profilePage}
+                                                  dispatch={props.dispatch}/>}/>
                     <Route path="/settings" component={Settings}/>
                     <div className="wrapper-box">
                         <Route path="/news" component={News}/>
