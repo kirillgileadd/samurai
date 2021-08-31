@@ -1,23 +1,30 @@
 import React from 'react';
 import './index.scss';
 import reportWebVitals from './reportWebVitals';
-import state, {addPost, onChangeMessage, sendMessage, subscribe, updateNewPostText} from "./redux/state";
+import store from "./redux/state";
 import ReactDOM from 'react-dom';
 import './index.scss';
 import App from './App';
+import {BrowserRouter} from "react-router-dom";
 
 let renderEntireThree = (state) => {
     ReactDOM.render(
-        <React.StrictMode>
-            <App state={state} addPost={addPost} updateNewPostText={updateNewPostText} onChangeMessage={onChangeMessage} sendMessage={sendMessage}/>
-        </React.StrictMode>,
+        <BrowserRouter>
+            <React.StrictMode>
+                <App state={state}
+                     addPost={store.addPost.bind(store)}
+                     updateNewPostText={store.updateNewPostText.bind(store)}
+                     onChangeMessage={store.onChangeMessage.bind(store)}
+                     sendMessage={store.sendMessage.bind(store)}/>
+            </React.StrictMode>
+        </BrowserRouter>,
         document.getElementById('root')
     );
 }
 
-renderEntireThree(state);
+renderEntireThree(store.getState());
 
-subscribe(renderEntireThree)
+store.subscribe(renderEntireThree)
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
