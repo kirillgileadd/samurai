@@ -1,5 +1,13 @@
+import profileReducer from "./profile-reducer";
+import dialogsReducer from "./dialogs-reducer";
+import asideReducer from "./aside-reducer";
+import navbarReducer from "./navbar-reducer";
+
 const ADD_POST = "ADD-POST";
 const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT"
+
+const SEND_MESSAGE = 'SEND-MESSAGE'
+const UPDATE_NEW_TEXT_MESSAGE = 'UPDATE_NEW_TEXT_MESSAGE'
 
 let store = {
     _state: {
@@ -9,11 +17,7 @@ let store = {
                 {massage: "It's my first post", likeCounter: '21'},
                 {massage: "It's my first post", likeCounter: '21'},
             ],
-            newPostTest: 'it-kamasytra',
-            aside: [
-                {name: 'Friends', num: '3'},
-                {name: 'Group', num: '6'},
-            ]
+            newPostTest: '',
         },
         dialogsPage: {
             messages: [
@@ -25,7 +29,7 @@ let store = {
                 {id: '5', message: 'Hello World!'},
             ],
 
-            newMessageText: 'WoW',
+            newMessageText: '',
             dialogs: [
                 {id: '1', username: 'Diana Sokil', online: '1 hour ago'},
                 {id: '2', username: 'Rene', online: '2 hour ago'},
@@ -57,11 +61,14 @@ let store = {
                 {name: 'Friends', address: '/friends'},
                 {name: 'Settings', address: '/settings'},
             ],
-            aside: [
+
+        },
+        aside: {
+            asideItems: [
                 {name: 'Friends', num: '3'},
                 {name: 'Group', num: '6'},
             ]
-        }
+        },
     },
     _callSubcriber() {
         console.log('Sate was changed')
@@ -76,55 +83,17 @@ let store = {
     },
 
 
-    addPost() {
-        let newPost = {
-            massage: this._state.profilePage.newPostTest,
-            likeCounter: '0'
-        }
-
-        this._state.profilePage.posts.push(newPost)
-        this._state.profilePage.newPostTest = ''
-        this._callSubcriber(this.getState());
-    },
-    updateNewPostText(newText) {
-        this._state.profilePage.newPostTest = newText
-        this._callSubcriber(this.getState());
-    },
-    sendMessage() {
-        let newMessage = {
-            id: '5',
-            message: this._state.dialogsPage.newMessageText
-        }
-
-        this._state.dialogsPage.messages.push(newMessage)
-        this._state.dialogsPage.newMessageText = ''
-        this._callSubcriber(this.getState());
-    },
-    onChangeMessage(newMessage) {
-        this._state.dialogsPage.newMessageText = newMessage
-        this._callSubcriber(this.getState());
-    },
-
     dispatch(action) { //type "ADD-POST"
-        if (action.type === ADD_POST) {
-            let newPost = {
-                massage: this._state.profilePage.newPostTest,
-                likeCounter: '0'
-            }
-
-            this._state.profilePage.posts.push(newPost)
-            this._state.profilePage.newPostTest = ''
-            this._callSubcriber(this.getState());
-        } else if (action.type === UPDATE_NEW_POST_TEXT) {
-            this._state.profilePage.newPostTest = action.newText
-            this._callSubcriber(this.getState());
-        }
+        this._state.profilePage = profileReducer(this._state.profilePage, action)
+        this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action)
+        this._state.aside = asideReducer(this._state.aside, action)
+        this._state.navBar = navbarReducer(this._state.navBar, action)
+        this._callSubcriber(this._state);
     }
 
 }
 
-export const addPostActionChange = () => ({type: ADD_POST,})
-export const onPostChangeActionChange = (text) => ({type: UPDATE_NEW_POST_TEXT, newText: text})
+
 
 
 export default store

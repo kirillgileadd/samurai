@@ -15,20 +15,19 @@ import Members from "./componets/Members/Members";
 
 const App = (props) => {
 
-
     return (
         <section className="main">
             <div className="main__inner">
-                <NavBar state={props.state.navBar}/>
+                <NavBar state={props.state.navBar} aside={props.state.aside}/>
                 <Header/>
             </div>
             <div className="wrapper-content">
                 <Switch>
                     <Route path="/dialogs" render={() => <Dialogs state={props.state.dialogsPage}
-                                                                  onChangeMessage={props.onChangeMessage}
-                                                                  sendMessage={props.sendMessage}/>}/>
+                                                                  dispatch={props.dispatch}/>}/>
                     <Route path="/profile"
                            render={() => <Profile state={props.state.profilePage}
+                                                  aside={props.state.aside}
                                                   dispatch={props.dispatch}/>}/>
                     <Route path="/settings" component={Settings}/>
                     <div className="wrapper-box">

@@ -1,7 +1,7 @@
 import React from 'react';
 import './index.scss';
 import reportWebVitals from './reportWebVitals';
-import store from "./redux/state";
+import store from "./redux/redux-store";
 import ReactDOM from 'react-dom';
 import './index.scss';
 import App from './App';
@@ -12,9 +12,7 @@ let renderEntireThree = (state) => {
         <BrowserRouter>
             <React.StrictMode>
                 <App state={state}
-                     dispatch = {store.dispatch.bind(store)}
-                     onChangeMessage={store.onChangeMessage.bind(store)}
-                     sendMessage={store.sendMessage.bind(store)}/>
+                     dispatch = {store.dispatch.bind(store)}/>
             </React.StrictMode>
         </BrowserRouter>,
         document.getElementById('root')
@@ -23,7 +21,11 @@ let renderEntireThree = (state) => {
 
 renderEntireThree(store.getState());
 
-store.subscribe(renderEntireThree)
+store.subscribe( () => {
+    let state = store.getState()
+    renderEntireThree(state)
+
+})
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

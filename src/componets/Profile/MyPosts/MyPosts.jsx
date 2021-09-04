@@ -1,7 +1,7 @@
 import React from 'react'
 import Post from './Post/Post'
 import s from './MyPosts.module.scss'
-import {addPostActionChange, onPostChangeActionChange} from "../../../redux/state";
+import {addPostActionChange, onPostChangeActionChange} from "../../../redux/profile-reducer";
 
 
 

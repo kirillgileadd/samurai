@@ -3,7 +3,7 @@ import s from './Dialogs.module.scss'
 import DialogItem from "./DialogItem/DialogItem";
 import MessageItem from "./MessageItem/MessageItem";
 import SimpleBar from "simplebar-react";
-import {sendMessage} from "../../redux/state";
+import {addMessageChange, onMessageChaneChange} from "../../redux/dialogs-reducer";
 
 
 const Dialogs = (props) => {
@@ -14,12 +14,12 @@ const Dialogs = (props) => {
 
 
     let sendMessage = () => {
-        props.sendMessage()
+        props.dispatch(addMessageChange ())
     }
 
     let onChangeMessage = (e) => {
-        let message = e.target.value
-        props.onChangeMessage(message)
+        let body = e.target.value
+        props.dispatch(onMessageChaneChange (body))
     }
 
     return (

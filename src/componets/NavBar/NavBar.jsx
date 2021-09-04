@@ -7,9 +7,8 @@ import ProfileItem from "./ProfileItem/ProfileItem";
 
 
 const NavBar = (props) => {
-
     let itemsElements = props.state.navItems.map(el => <NavItem name={el.name} address={el.address}/>)
-    let itemsProfile = props.state.aside.map( el => <ProfileItem name={el.name} num={el.num}/>)
+    let itemsProfile = props.aside.asideItems.map( el => <ProfileItem name={el.name} num={el.num}/>)
 
     return (
         <aside className={s.aside}>

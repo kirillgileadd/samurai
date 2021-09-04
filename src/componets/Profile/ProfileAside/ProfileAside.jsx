@@ -5,7 +5,7 @@ import ProfileItem from "../../NavBar/ProfileItem/ProfileItem";
 
 const ProfileAside = (props) => {
 
-    let itemsProfile = props.aside.map( el => <ProfileItem name={el.name} num={el.num}/>)
+    let itemsProfile = props.aside.asideItems.map( el => <ProfileItem name={el.name} num={el.num}/>)
 
    return (
           <div className={s.aside}>
